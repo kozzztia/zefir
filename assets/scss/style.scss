@@ -1,0 +1,9 @@
+//plugins
+@use "plugins/swiper.min";
+//main
+@use "variables";
+@use "reset";
+@use "main";
+//blocks
+@use "blocks/footer";
+@use "blocks/header";
