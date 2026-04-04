@@ -1,5 +1,10 @@
 <header class="customWrapper">
     <div class="customBlock header">
+
+        <button type="button" class="header-btn menu-btn" aria-label="menu">
+            <span></span>
+        </button>
+
         <div class="header-logo">
             <?php get_template_part('views/overall/logo'); ?>
         </div>
@@ -10,7 +15,7 @@
                 <li class="menu-item"><a href="#">Popular</a></li>
                 <li class="menu-item">
                     <a href="#">Products</a>
-                    <ul class="menu">
+                    <ul class="sub-menu">
                         <li class="menu-item"><a href="#">desserts</a></li>
                         <li class="menu-item"><a href="#">cakes</a></li>
                         <li class="menu-item"><a href="#">bakery</a></li>
@@ -24,6 +29,27 @@
         </nav>
 
         <div class="header-actions desktop">
+
+            <button type="button" class="header-btn search-btn" aria-label="search">
+                <svg>
+                    <use href="<?php echo get_template_directory_uri(); ?>/assets/svg/sprite.svg#search-icon"></use>
+                </svg>
+            </button>
+            <button type="button" class="header-btn phone-btn" aria-label="phone">
+                <svg>
+                    <use href="<?php echo get_template_directory_uri(); ?>/assets/svg/sprite.svg#phone-icon"></use>
+                </svg>
+            </button>
+            <button type="button" class="header-btn account-btn" aria-label="account">
+                <svg>
+                    <use href="<?php echo get_template_directory_uri(); ?>/assets/svg/sprite.svg#account-icon"></use>
+                </svg>
+            </button>
+            <button type="button" class="header-btn cart-btn" aria-label="cart">
+                <svg>
+                    <use href="<?php echo get_template_directory_uri(); ?>/assets/svg/sprite.svg#cart-icon"></use>
+                </svg>
+            </button>
 
         </div>
     </div>
