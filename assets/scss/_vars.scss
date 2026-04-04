@@ -1,0 +1,17 @@
+:root {
+	// colors
+	--color-white: #F1F1F1;
+	--color-white-rgb: 241, 241, 241;
+	--color-black: #151515;
+	--color-black-rgb: 21, 21, 21;
+	--block-side-padding: clamp(20px, 3vw, 40px);
+	--header-height: clamp(60px, 8vw, 80px);
+	//sizes
+	--primary-font-sizes: 16px;
+	--primary-block-width: 1440px;
+	--primary-font-family: 'roboto', sans-serif;
+	--primary-gap: 20px;
+
+	//theme
+	--primary-background-color: var(--color-white);
+}

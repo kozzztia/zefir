@@ -1,10 +1,8 @@
-<?php get_header(); ?>
+<?php
+function zefir_render_content() {
 
+    get_template_part('views/blocks/banner');
 
-    <section>
-        one
-    </section>
+}
 
-
-<?php get_footer(); ?>
-
+get_template_part('views/overall/layout');

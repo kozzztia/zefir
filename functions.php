@@ -11,4 +11,5 @@ function zefir_scripts() {
     wp_enqueue_script('zefir-plugins', get_template_directory_uri() . '/assets/js/plugins.min.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('zefir-custom', get_template_directory_uri() . '/assets/js/custom.min.js', array('jquery'), '1.0.0', true);
 }
-add_action('wp_enqueue_scripts', 'zefi r_scripts');
+
+add_action('wp_enqueue_scripts', 'zefir_scripts');
