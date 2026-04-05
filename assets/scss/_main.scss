@@ -62,7 +62,8 @@ body {
 	display: block;
 	cursor: pointer;
 	height: 100%;
-
+	-webkit-tap-highlight-color: transparent;
+	
 	img {
 		display: block;
 		width: auto;

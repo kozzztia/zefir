@@ -1,0 +1,12 @@
+@keyframes show-down {
+	from {
+		opacity: 0;
+		transform: translateY(-30px) translateX(0);
+		visibility: hidden;
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) translateX(0);
+		visibility: visible;
+	}
+}
