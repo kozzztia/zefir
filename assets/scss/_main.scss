@@ -11,6 +11,7 @@ main {
 body {
 	font-family: var(--primary-font), sans-serif;
 	font-size: var(--primary-font-size);
+	font-weight: 500;
 	line-height: 1.6;
 	position: relative;
 	display: flex;
@@ -63,7 +64,7 @@ body {
 	cursor: pointer;
 	height: 100%;
 	-webkit-tap-highlight-color: transparent;
-	
+
 	img {
 		display: block;
 		width: auto;
@@ -72,6 +73,30 @@ body {
 
 		@media (max-width : 1024px){
 			height: 22px;
+		}
+	}
+}
+
+.btn{
+	font-family: var(--primary-font), sans-serif;
+	padding: 14px 34px;
+	border: none;
+	outline: none;
+	font-weight: 500;
+	cursor: pointer;
+	font-size: var(--xs-font-size);
+	text-transform: uppercase;
+	text-align: center;
+	transition: color .2s, background-color .2s;
+	box-shadow: 0 2px 5px rgba(0,0,0, .2);
+	-webkit-tap-highlight-color: transparent;
+
+	&.sandy{
+		background-color: var(--color-sandy);
+		color: var(--color-black);
+
+		&:hover{
+			background-color: var(--color-white);
 		}
 	}
 }

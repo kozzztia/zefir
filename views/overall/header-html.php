@@ -1,4 +1,4 @@
-<header class="customWrapper">
+<header class="customWrapper header-wrapper">
     <div class="customBlock header">
 
         <button type="button" class="header-btn menu-btn" aria-label="menu">

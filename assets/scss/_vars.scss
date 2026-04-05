@@ -4,8 +4,10 @@
 	--color-white-rgb: 241, 241, 241;
 	--color-black: #08090B;
 	--color-black-rgb: 8, 9, 1;
-	--color-sand: #EBC6A8;
-	--color-sand-rgb: 235, 198, 168;
+	--color-sandy: #EBC6A8;
+	--color-sandy-rgb: 235, 198, 168;
+	--color-chocolate: #431F1D;
+	--color-chocolate-rgb: 235, 198, 168;
 
 	//sizes
 	--block-side-padding: clamp(20px, 3vw, 40px);
@@ -13,6 +15,8 @@
 
 	--primary-font-size: 16px;
 	--s-font-size: 20px;
+	--xs-font-size: clamp(16px, 1.5vw, 21px);
+	--xxl-font-size: clamp(24px, 3vw, 40px);
 
 	--primary-block-width: 1200px;
 	--secondary-block-width: 1440px;
@@ -24,4 +28,12 @@
 	--decor-color: var(--color-sand);
 	--primary-font: 'Montserrat';
 	--secondary-font: Georgia;
+}
+
+
+@mixin protect($count){
+	display: -webkit-box;
+	-webkit-line-clamp: $count;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
