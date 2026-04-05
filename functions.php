@@ -12,4 +12,8 @@ function zefir_scripts() {
     wp_enqueue_script('zefir-custom', get_template_directory_uri() . '/assets/js/custom.min.js', array('jquery'), '1.0.0', true);
 }
 
+register_nav_menus(array(
+    'primary' => __('Primary Menu', 'zefir'),
+));
+
 add_action('wp_enqueue_scripts', 'zefir_scripts');

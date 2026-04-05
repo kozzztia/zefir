@@ -10,11 +10,19 @@
         </div>
 
         <nav class="header-navigation-desktop">
-            <?php get_template_part('views/overall/menu-html'); ?>
+            <?php wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'menu_class'     => 'menu',
+                    'container'      => false,
+            )); ?>
         </nav>
 
         <div class="header-navigation-mobile">
-            <?php get_template_part('views/overall/menu-html'); ?>
+            <?php wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'menu_class'     => 'menu',
+                    'container'      => false,
+            )); ?>
 
             <button type="button" class="header-btn close-menu-btn" aria-label="close menu">
                 <span></span>
