@@ -4,7 +4,7 @@
             <div class="swiper-wrapper">
                 <?php for ($i = 1; $i <= 5; $i++): ?>
                 <div class="swiper-slide">
-                    <?php get_template_part('views/overall/banner-slide'); set_query_var('product', $i); ?>
+                    <?php  set_query_var('product', $i); get_template_part('views/overall/banner-slide'); ?>
                 </div>
                 <?php endfor; ?>
             </div>
