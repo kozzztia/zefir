@@ -8,30 +8,28 @@
 	--color-sandy-rgb: 235, 198, 168;
 	--color-chocolate: #431F1D;
 	--color-chocolate-rgb: 235, 198, 168;
-
 	//sizes
 	--block-side-padding: clamp(20px, 3vw, 40px);
 	--header-height: clamp(60px, 8vw, 80px);
-
 	--primary-font-size: 16px;
 	--s-font-size: 20px;
 	--xs-font-size: clamp(16px, 1.5vw, 21px);
 	--xxl-font-size: clamp(24px, 3vw, 40px);
-
 	--primary-block-width: 1200px;
 	--secondary-block-width: 1440px;
+	--third-block-width: 970px;
 	--primary-gap: 20px;
-
 	//theme
+	--blur: 10px;
 	--primary-background-color: var(--color-white);
+	--primary-background-color-rgba: rgba(var(--color-white-rgb), .5);
 	--primary-color: var(--color-black);
-	--decor-color: var(--color-sand);
+	--decor-color: var(--color-sandy);
 	--primary-font: 'Montserrat';
 	--secondary-font: Georgia;
 }
 
-
-@mixin protect($count){
+@mixin protect($count) {
 	display: -webkit-box;
 	-webkit-line-clamp: $count;
 	-webkit-box-orient: vertical;

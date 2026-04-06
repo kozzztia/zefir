@@ -1,7 +1,12 @@
 
 .header-wrapper {
+	position: fixed;
 	z-index: 1000;
+	top: 0;
+	right: 0;
+	left: 0;
 	background-color: var(--primary-background-color);
+	padding-inline: var(--block-side-padding);
 
 	.header {
 		position: relative;
@@ -9,8 +14,10 @@
 		align-items: stretch;
 		flex-direction: row;
 		justify-content: space-between;
+		max-width: var(--primary-block-width);
 		height: var(--header-height);
 		gap: var(--primary-gap);
+		margin-inline: auto;
 
 		a {
 			font-family: var(--secondary-font), sans-serif;
@@ -29,7 +36,7 @@
 				background-size: 0 2px;
 				&:hover {
 					background-position: 0 100%;
-					background-size: 100% 2px;
+					background-size: 100% 1px;
 				}
 			}
 		}

@@ -1,7 +1,6 @@
 @use '../vars' as *;
 
 .banner-slider-wrapper {
-	padding-inline: 0;
 
 	.banner-slider {
 		position: relative;
@@ -44,7 +43,7 @@
 					height: 100%;
 					content: '';
 					background-color: rgba(var(--color-white-rgb), 0.3);
-					backdrop-filter: blur(20px);
+					backdrop-filter: blur(var(--blur));
 				}
 			}
 
@@ -103,6 +102,7 @@
 		}
 
 		.pagination{
+			overflow: visible;
 			.swiper-pagination-bullet {
 				background-color: var(--color-chocolate);
 				border: 1px solid var(--color-sandy);
@@ -111,10 +111,12 @@
 				height: 12px;
 				width: 12px;
 				transition: width 0.2s;
+				box-shadow: 0 0 20px var(--color-black);
 				&-active{
 					width: 34px;
 				}
 			}
+			margin-bottom: 10px;
 		}
 	}
 }

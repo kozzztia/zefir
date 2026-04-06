@@ -1,6 +1,6 @@
 <div class="banner-slide"
      data-product="<?php echo get_query_var('product'); ?>"
-     style="background-image: url('../../assets/img/banner-slide-<?php echo get_query_var('product'); ?>.webp')">
+     style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/banner-slide-<?php echo get_query_var('product'); ?>.webp')">
     <div class="banner-slide-content">
         <article class="banner-slide-article">
             <h2 class="banner-slide-title">Lorem ipsum dolor sit amet</h2>

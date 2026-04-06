@@ -31,7 +31,9 @@ body {
 	font-optical-sizing: auto;
 
 	&.headroom--not-top {
-		.header {
+		.header-wrapper {
+			//background-color: var(--primary-background-color-rgba);
+			//backdrop-filter: blur(var(--blur));
 		}
 	}
 
@@ -43,18 +45,11 @@ body {
 }
 
 .customWrapper {
-	width: 100%;
-	padding-inline: var(--block-side-padding);
-
-	&:has(.header) {
-		position: fixed;
-		top: 0;
-		right: 0;
-		left: 0;
-	}
+	width :100%;
+	position: relative;
 
 	.customBlock {
-		max-width: var(--primary-block-width);
+		max-width: var(--secondary-block-width);
 		margin-inline: auto;
 	}
 }

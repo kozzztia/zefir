@@ -59,7 +59,7 @@
                     dynamicBullets: true,
                     dynamicMainBullets: 5,
                 },
-                spaceBetween: 10,
+                // spaceBetween: 10,
             });
         }
     });
