@@ -1,0 +1,123 @@
+@use '../vars' as *;
+
+.banner-single-wrapper {
+	.banner-single {
+		position: relative;
+		z-index: 1;
+		max-width: var(--secondary-block-width);
+
+		.banner-product {
+			position: relative;
+			display: flex;
+			align-items: flex-start;
+			flex-direction: column;
+			min-height: 600px;
+			padding: var(--block-side-padding);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+
+			&::before {
+				position: absolute;
+				content: '';
+				background-color: rgba(var(--color-white-rgb), .9);
+				inset: 0;
+			}
+
+			&-content {
+				z-index: 2;
+				top: 0;
+				left: 0;
+				display: flex;
+				align-items: center;
+				gap: var(--primary-gap);
+				flex: 1;
+				flex-direction: row;
+				width: 100%;
+				max-width: var(--primary-block-width);
+				margin-inline: auto;
+
+				&:after {
+					position: absolute;
+					z-index: -1;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					//width :50%;
+					//max-width: 580px;
+					display: block;
+					width: min(50%, 580px);
+					height: 100%;
+					content: '';
+					background-color: rgba(var(--color-white-rgb), 0.3);
+					backdrop-filter: blur(var(--blur));
+				}
+			}
+
+			&-article {
+				//width: 423px;
+				line-height: 1.1;
+				width: max(40%, 420px);
+				z-index: 100;
+			}
+
+			&-img {
+				flex: 1;
+				z-index: 90;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+					object-position: center;
+					scale: 1.2;
+				}
+			}
+
+			&-title {
+				font-family: var(--secondary-font), sans-serif;
+				font-size: var(--xxl-font-size);
+				font-weight: 900;
+				margin-bottom: 40px;
+				text-transform: uppercase;
+				@include protect(3);
+				@media (max-width: 768px) {
+					margin-bottom: 20px;
+				}
+			}
+
+			&-text {
+				font-size: var(--s-font-size);
+				@include protect(4);
+				margin-bottom: 40px;
+				@media (max-width: 768px) {
+					margin-bottom: 20px;
+				}
+			}
+
+			@media (max-width: 768px) {
+				&-content {
+					flex-direction: column-reverse;
+
+					&:after {
+						top: auto;
+						width: 100%;
+						height: 100%;
+					}
+				}
+				&-article {
+					width: 100%;
+					padding: var(--block-side-padding);
+				}
+				&-img {
+					img {
+						scale: 1;
+					}
+				}
+				&-btn {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
