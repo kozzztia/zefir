@@ -1,5 +1,3 @@
-<?php $slide = get_query_var('slide'); ?>
-
 <div class="banner-slide"
      data-product="1"
      style="background-image: <?php echo get_template_directory_uri(); ?>'/assets/img/banner-slide-1.jpg'">
@@ -13,3 +11,4 @@
         </article>
     </div>
 </div>
+<!--as  exapmple-->
