@@ -1,11 +1,13 @@
+<?php $slide = get_query_var('slide'); ?>
+
 <div class="banner-slide"
-     data-product="<?php echo get_query_var('product'); ?>"
-     style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/banner-slide-<?php echo get_query_var('product'); ?>.webp')">
+     data-product="1"
+     style="background-image: <?php echo get_template_directory_uri(); ?>'/assets/img/banner-slide-1.jpg'">
     <div class="banner-slide-content">
         <article class="banner-slide-article">
             <h2 class="banner-slide-title">Lorem ipsum dolor sit amet</h2>
-            <p class="banner-slide-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor</p>
-            <button class="banner-slide-btn btn sandy" type="button" aria-label="place an order">
+            <p class="banner-slide-text">Lorem ipsum dolor sit amet</p>
+            <button class="banner-slide-btn btn sandt" type="button" aria-label="place an order">
                 place an order
             </button>
         </article>
