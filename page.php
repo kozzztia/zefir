@@ -3,8 +3,8 @@ function zefir_render_content() {
 
     get_template_part('views/blocks/banner-slider', null, [
         'field' => [
-            'type' => get_field('banner_slider_type_1'),
-            'timer' => get_field('banner_slider_timer_1'),
+            'type' => 'banner_slider_type_1',
+            'timer' => 'banner_slider_timer_1',
         ],
     ]);
 
@@ -12,7 +12,9 @@ function zefir_render_content() {
 
     get_template_part('views/blocks/banner-single', null, [
         'field' => [
-            'style' => '',
+            'style' => 'banner_single_style_1',
+            'name' => 'banner_single_name_1',
+            'picture' => 'banner_single_picture_1',
         ],
     ]);
 
@@ -22,7 +24,9 @@ function zefir_render_content() {
 
     get_template_part('views/blocks/banner-single', null, [
         'field' => [
-            'style' => 'reverse',
+            'style' => 'banner_single_style_2',
+            'name' => 'banner_single_name_2',
+            'picture' => 'banner_single_picture_2',
         ],
     ]);
 
