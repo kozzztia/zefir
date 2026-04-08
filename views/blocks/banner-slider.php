@@ -13,25 +13,25 @@ if ($slider):
                 <div class="swiper-wrapper">
                     <?php foreach ($slider as $index => $slide): ?>
                         <div class="swiper-slide">
-                            <div class="banner-slide"
+                            <div class="product-card"
                                     <?php if (!empty($slide['id'])): ?>
                                         data-product="<?php echo esc_attr($slide['id']); ?>"
                                     <?php endif; ?>
                                     <?php if (!empty($slide['img'])): ?>
                                         style="background-image: url('<?php echo esc_url($slide['img']); ?>')"
                                     <?php endif; ?>>
-                                <div class="banner-slide-content">
-                                    <article class="banner-slide-article">
+                                <div class="product-card-content">
+                                    <article class="product-card-article">
                                         <?php if (!empty($slide['title'])): ?>
-                                            <h2 class="banner-slide-title"><?php echo esc_html($slide['title']); ?></h2>
+                                            <h2 class="product-card-title"><?php echo esc_html($slide['title']); ?></h2>
                                         <?php endif; ?>
 
                                         <?php if (!empty($slide['description'])): ?>
-                                            <p class="banner-slide-text"><?php echo esc_html($slide['description']); ?></p>
+                                            <p class="product-card-text"><?php echo esc_html($slide['description']); ?></p>
                                         <?php endif; ?>
 
                                         <?php if (!empty($slide['button_title'])): ?>
-                                            <button class="banner-slide-btn btn <?php echo esc_attr($slide['button_style']); ?>"
+                                            <button class="product-card-btn btn <?php echo esc_attr($slide['button_style']); ?>"
                                                     type="button"
                                                     <?php if (!empty($slide['button_label'])): ?>
                                                         aria-label="<?php echo esc_attr($slide['button_label']); ?>"
