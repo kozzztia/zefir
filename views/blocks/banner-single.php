@@ -1,7 +1,7 @@
 <?php
 $field = isset($args['field']) ? $args['field'] : null;
-$style = get_field($field['style']);
-$picture = get_field($field['picture']);
+$style = !empty($field['style']) ? get_field($field['style']) : '';
+$picture = !empty($field['picture']) ? get_field($field['picture']) : null;
 $name = get_field($field['name']);
 
 if ($name) {

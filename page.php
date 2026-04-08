@@ -8,7 +8,16 @@ function zefir_render_content() {
         ],
     ]);
 
-    get_template_part('views/blocks/product-gallery');
+    get_template_part('views/blocks/product-gallery', null, [
+        'field' => [
+            'count'      => 'product_gallery_count_1',
+            'decor'      => 'product_gallery_decor_1',
+            'title'      => 'product_gallery_title_1',
+            'subtitle'   => 'product_gallery_subtitle_1',
+            'link'       => 'product_gallery_link_1',
+        ],
+    ]);
+
 
     get_template_part('views/blocks/banner-single', null, [
         'field' => [
@@ -19,7 +28,13 @@ function zefir_render_content() {
     ]);
 
     get_template_part('views/blocks/product-gallery', null, [
-        'field' => 'product_gallery_2',
+        'field' => [
+            'count'      => 'product_gallery_count_2',
+            'decor'      => 'product_gallery_decor_2',
+            'title'      => 'product_gallery_title_2',
+            'subtitle'   => 'product_gallery_subtitle_2',
+            'link'       => 'product_gallery_link_2',
+        ],
     ]);
 
     get_template_part('views/blocks/banner-single', null, [

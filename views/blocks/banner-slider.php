@@ -1,7 +1,7 @@
 <?php
 $field = isset($args['field']) ? $args['field'] : null;
-$timer = get_field($field['timer']);
-$type = get_field($field['type']);
+$timer = !empty($field['timer']) ? get_field($field['timer']) : 10000;
+$type = !empty($field['type']) ? get_field($field['type']) : 'service';
 
 $query = new WP_Query([
         'post_type'      => $type,
