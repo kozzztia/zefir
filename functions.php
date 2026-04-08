@@ -12,6 +12,34 @@ function zefir_scripts() {
     wp_enqueue_script('zefir-custom', get_template_directory_uri() . '/assets/js/custom.min.js', array('jquery'), '1.0.0', true);
 }
 
+function register_custom_cpts() {
+    // Products
+    register_post_type('product', [
+        'labels' => [
+            'name'          => 'Products',
+            'singular_name' => 'Product',
+        ],
+        'public'       => true,
+        'has_archive'  => false,
+        'menu_icon'    => 'dashicons-cart',
+        'supports'     => ['title', 'editor', 'thumbnail', 'excerpt'],
+        'show_in_rest' => true,
+    ]);
+
+    // Services
+    register_post_type('service', [
+        'labels' => [
+            'name'          => 'Services',
+            'singular_name' => 'Service',
+        ],
+        'public'       => true,
+        'has_archive'  => false,
+        'menu_icon'    => 'dashicons-hammer',
+        'supports'     => ['title', 'editor', 'thumbnail', 'excerpt'],
+        'show_in_rest' => true,
+    ]);
+}
+add_action('init', 'register_custom_cpts');
 
 
 register_nav_menus(array(

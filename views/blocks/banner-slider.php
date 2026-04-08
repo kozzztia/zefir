@@ -1,54 +1,46 @@
 <?php
-$field = isset($args['field']) ? $args['field'] : 'banner_slider_1';
-$slider = get_field($field);
+$field = isset($args['field']) ? $args['field'] : null;
 
-if ($slider):
-    $timer = get_field($field . '_timer');
-    $isPagination = get_field($field . '_pagination');
-    $timer = $timer ? intval($timer) : 50000;
-    ?>
+// дефолтные значения
+$timer = !empty($field['timer']) ? intval($field['timer']) : 10000;
+$type  = !empty($field['type']) ? $field['type'] : 'product';
+
+$query = new WP_Query([
+        'post_type'      => $type,
+        'posts_per_page' => -1,
+]);
+
+if ($query->have_posts()): ?>
     <div class="customWrapper banner-slider-wrapper">
         <div class="customBlock banner-slider">
             <div class="swiper banner-swiper" data-timer="<?php echo $timer; ?>">
                 <div class="swiper-wrapper">
-                    <?php foreach ($slider as $index => $slide): ?>
+                    <?php while ($query->have_posts()): $query->the_post(); ?>
                         <div class="swiper-slide">
                             <div class="product-card"
-                                    <?php if (!empty($slide['id'])): ?>
-                                        data-product="<?php echo esc_attr($slide['id']); ?>"
-                                    <?php endif; ?>
-                                    <?php if (!empty($slide['img'])): ?>
-                                        style="background-image: url('<?php echo esc_url($slide['img']); ?>')"
-                                    <?php endif; ?>>
+                                 style="background-image: url('<?php
+                                 echo esc_url(
+                                         has_post_thumbnail()
+                                                 ? get_the_post_thumbnail_url(get_the_ID(), 'large')
+                                                 : get_template_directory_uri() . '/assets/img/banner-slide-1.webp'
+                                 );
+                                 ?>')">
                                 <div class="product-card-content">
                                     <article class="product-card-article">
-                                        <?php if (!empty($slide['title'])): ?>
-                                            <h2 class="product-card-title"><?php echo esc_html($slide['title']); ?></h2>
-                                        <?php endif; ?>
-
-                                        <?php if (!empty($slide['description'])): ?>
-                                            <p class="product-card-text"><?php echo esc_html($slide['description']); ?></p>
-                                        <?php endif; ?>
-
-                                        <?php if (!empty($slide['button_title'])): ?>
-                                            <button class="product-card-btn btn <?php echo esc_attr($slide['button_style']); ?>"
-                                                    type="button"
-                                                    <?php if (!empty($slide['button_label'])): ?>
-                                                        aria-label="<?php echo esc_attr($slide['button_label']); ?>"
-                                                    <?php endif; ?>>
-                                                <?php echo esc_html($slide['button_title']); ?>
-                                            </button>
-                                        <?php endif; ?>
+                                        <h2 class="product-card-title"><?php the_title(); ?></h2>
+                                        <p class="product-card-text"><?php echo esc_html(get_the_excerpt()); ?></p>
+                                        <a href="<?php the_permalink(); ?>" class="product-card-btn btn sandy">
+                                            View <?php echo $type ?>
+                                        </a>
                                     </article>
                                 </div>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    <?php endwhile; ?>
                 </div>
-                <?php if ($isPagination): ?>
+                <!-- пагинация всегда включена -->
                 <div class="swiper-pagination pagination"></div>
-                <?php endif; ?>
             </div>
         </div>
     </div>
-<?php endif; ?>
+<?php endif; wp_reset_postdata(); ?>
