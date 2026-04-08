@@ -24,18 +24,18 @@ if ($gallery):
                 <ul class="gallery-list">
                     <?php foreach ($gallery as $index => $product): ?>
                         <li class="gallery-list-item">
-                            <a href="<?php echo esc_url($product['link']); ?>" class="product-item">
+                            <a href="<?php echo esc_url($product['link']); ?>" class="product-small-card">
                                 <?php if (!empty($product['img'])): ?>
-                                    <img class="product-item-img"
+                                    <img class="product-small-card-img"
                                          src="<?php echo esc_url($product['img']); ?>"
                                          alt="<?php echo esc_attr($product['title']); ?>">
                                 <?php endif; ?>
-                                <article class="product-item-article">
+                                <article class="product-small-card-article">
                                     <?php if (!empty($product['title'])): ?>
-                                        <h4 class="product-item-title"><?php echo esc_html($product['title']); ?></h4>
+                                        <h4 class="product-small-card-title"><?php echo esc_html($product['title']); ?></h4>
                                     <?php endif; ?>
                                     <?php if (!empty($product['description'])): ?>
-                                        <p class="product-item-text"><?php echo esc_html($product['description']); ?></p>
+                                        <p class="product-small-card-text"><?php echo esc_html($product['description']); ?></p>
                                     <?php endif; ?>
                                 </article>
                             </a>

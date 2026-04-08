@@ -230,3 +230,37 @@ body {
 		}
 	}
 }
+
+.product-small-card {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	text-align: center;
+	text-decoration: none;
+	color: currentColor;
+
+	&-img {
+		width: 100%;
+		margin-bottom: 28px;
+		border-radius: 50%;
+		aspect-ratio: 1/1;
+		transition: scale 0.2s;
+	}
+
+	&-title {
+		font-family: var(--secondary-font), sans-serif;
+		font-size: var(--s-font-size);
+		font-weight: 800;
+		text-transform: uppercase;
+		@include protect(2);
+	}
+
+	&-text {
+		@include protect(2);
+	}
+	//&:hover{
+	//	//.product-item-img{
+	//	//	scale: 1.05;
+	//	//}
+	//}
+}
