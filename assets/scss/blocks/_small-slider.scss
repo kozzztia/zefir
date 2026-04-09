@@ -1,0 +1,109 @@
+@use '../vars' as *;
+
+.small-slider-wrapper {
+	.small-slider {
+		position: relative;
+		z-index: 1;
+		max-width: var(--secondary-block-width);
+		margin-inline: auto;
+
+		.slider {
+			position: relative;
+			z-index: 100;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			padding: 90px var(--block-side-padding);
+			background-repeat: repeat;
+			background-position: center;
+			background-size: cover;
+
+			&-text {
+				z-index: 95;
+				width: 100%;
+				margin-bottom: 70px;
+				text-align: center;
+				text-transform: uppercase;
+				@media (max-width: 768px) {
+					margin-bottom: 24px;
+				}
+			}
+
+			&-subtitle {
+				font-size: var(--xs-font-size);
+				margin-bottom: 20px;
+				@media (max-width: 768px) {
+					margin-bottom: 15px;
+				}
+			}
+
+			&-title {
+				font-family: var(--secondary-font), sans-serif;
+				font-size: var(--xxl-font-size);
+				font-weight: 800;
+			}
+
+			&-link {
+				font-size: var(--xs-font-size);
+				font-weight: 500;
+				line-height: 1;
+				position: relative;
+				user-select: none;
+				text-decoration: none;
+				text-transform: uppercase;
+				color: inherit;
+
+				&:before {
+					position: absolute;
+					right: 0;
+					bottom: -10px;
+					left: auto;
+					width: 0;
+					height: 1px;
+					content: '';
+					transition: all .2s;
+					background: currentColor;
+				}
+
+				&:hover {
+					&:before {
+						right: auto;
+						left: 0;
+						width: 100%;
+					}
+				}
+
+				&:after {
+					position: relative;
+					display: inline-block;
+					width: 8px;
+					height: 8px;
+					margin-bottom: 2px;
+					margin-left: 10px;
+					content: '';
+					transform: rotate(-45deg);
+					border-right: 2px solid currentColor;
+					border-bottom: 2px solid currentColor;
+				}
+			}
+		}
+
+		.swiper {
+			overflow: visible;
+			max-width: 70%;
+			margin-bottom: 50px;
+			@media (max-width: 768px) {
+				max-width: 100%;
+			}
+
+			.swiper-slide {
+				transition: opacity .2s;
+				opacity: 0;
+
+				&-visible {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}

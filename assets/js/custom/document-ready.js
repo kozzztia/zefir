@@ -59,7 +59,27 @@
                     dynamicBullets: true,
                     dynamicMainBullets: 5,
                 },
-                // spaceBetween: 10,
+            });
+        }
+
+        if ($('.small-slider-wrapper .slider').length) {
+            const $swiper = $('.swiper');
+            const delay = $swiper.data('timer') || 4000;
+
+            new Swiper('.swiper', {
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 50,
+                autoplay: {
+                    delay: delay,
+                },
+                watchSlidesProgress: true,
+                watchSlidesVisibility: true,
+                breakpoints: {
+                    768: { slidesPerView: 1, spaceBetween: 50 },
+                    1024: { slidesPerView: 2, spaceBetween: 50 },
+                    1440: { slidesPerView: 3, spaceBetween: 50 },
+                }
             });
         }
     });

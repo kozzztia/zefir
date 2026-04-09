@@ -7,6 +7,7 @@ $decor = !empty($field['decor']) ? get_field($field['decor']) : false;
 $link = get_field($field['link']);
 $title = get_field($field['title']);
 $subtitle = get_field($field['subtitle']);
+$timer = !empty($field['timer']) ? get_field($field['timer']): 10000;
 
 $query = new WP_Query([
         'post_type' => $type,
@@ -14,21 +15,22 @@ $query = new WP_Query([
 ]);
 
 if ($query->have_posts()): ?>
-    <div class="customWrapper product-gallery-wrapper">
-        <div class="customBlock product-gallery">
-            <div class="gallery <?php echo $decor ? 'decorate' : ''; ?>"
-                 style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/gallery-bg.webp)">
-                <article class="gallery-text">
+    <div class="customWrapper small-slider-wrapper">
+        <div class="customBlock small-slider">
+            <div class="slider" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/gallery-bg.webp)">
+                <article class="slider-text">
                     <?php if ($subtitle): ?>
-                        <p class="gallery-subtitle"><?php echo esc_html($subtitle); ?></p>
+                        <p class="slider-subtitle"><?php echo esc_html($subtitle); ?></p>
                     <?php endif; ?>
                     <?php if ($title): ?>
-                        <h3 class="gallery-title"><?php echo esc_html($title); ?></h3>
+                        <h3 class="slider-title"><?php echo esc_html($title); ?></h3>
                     <?php endif; ?>
                 </article>
-                <ul class="gallery-list">
+                <div class="swiper" data-timer="<?php echo $timer ?>">
+                    <div class="swiper-wrapper">
                     <?php while ($query->have_posts()): $query->the_post(); ?>
-                        <li class="gallery-list-item">
+                        <div class="slider-item swiper-slide">
+
                             <a href="<?php the_permalink(); ?>" class="product-small-card">
                                 <?php if (has_post_thumbnail()): ?>
                                     <img class="product-small-card-img"
@@ -40,13 +42,14 @@ if ($query->have_posts()): ?>
                                     <p class="product-small-card-text"><?php echo esc_html(get_the_excerpt()); ?></p>
                                 </article>
                             </a>
-                        </li>
-                    <?php endwhile;
-                    wp_reset_postdata(); ?>
-                </ul>
+
+                        </div>
+                    <?php endwhile; wp_reset_postdata(); ?>
+                    </div>
+                </div>
                 <?php if ($link): ?>
-                    <div class="gallery-buttons">
-                        <a href="<?php echo esc_url($link['url']); ?>" class="gallery-link">
+                    <div class="slider-buttons">
+                        <a href="<?php echo esc_url($link['url']); ?>" class="slider-link">
                             <?php echo esc_html($link['title']); ?>
                         </a>
                     </div>

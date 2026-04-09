@@ -241,13 +241,17 @@ body {
 	text-align: center;
 	text-decoration: none;
 	color: currentColor;
+	height: 100%;
 
 	&-img {
 		width: 100%;
+		height: auto;
 		margin-bottom: 28px;
 		border-radius: 50%;
 		aspect-ratio: 1/1;
 		transition: scale 0.2s;
+		object-fit: cover;
+		object-position: center;
 	}
 
 	&-title {
@@ -259,6 +263,7 @@ body {
 	}
 
 	&-text {
+		margin-top: auto;
 		@include protect(2);
 	}
 	//&:hover{
