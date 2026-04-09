@@ -1,12 +1,13 @@
 <?php
 $field = isset($args['field']) ? $args['field'] : null;
+$type = isset($args['type']) ? $args['type'] : 'product';
 $style = !empty($field['style']) ? get_field($field['style']) : '';
 $picture = !empty($field['picture']) ? get_field($field['picture']) : null;
 $name = get_field($field['name']);
 
 if ($name) {
     $query = new WP_Query([
-            'post_type'      => 'product',
+            'post_type'      => $type,
             'posts_per_page' => 1,
             's'              => $name,
     ]);
@@ -14,7 +15,7 @@ if ($name) {
 
 if (empty($name) || !$query->have_posts()) {
     $query = new WP_Query([
-            'post_type'      => 'product',
+            'post_type'      => $type,
             'posts_per_page' => 1,
             'orderby'        => 'rand',
     ]);

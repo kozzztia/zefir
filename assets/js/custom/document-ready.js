@@ -46,7 +46,7 @@
         // banner slider
         if ($('.banner-slider-wrapper .banner-swiper').length) {
             const $swiper = $('.banner-slider-wrapper .banner-swiper');
-            const delay = $swiper.data('timer') || 4000;
+            const delay = $swiper.data('timer');
 
             new Swiper('.banner-swiper', {
                 loop: true,
@@ -63,10 +63,10 @@
         }
 
         if ($('.small-slider-wrapper .slider').length) {
-            const $swiper = $('.swiper');
-            const delay = $swiper.data('timer') || 4000;
+            const $swiper = $('.small-swiper');
+            const delay = $swiper.data('timer');
 
-            new Swiper('.swiper', {
+            new Swiper('.small-swiper', {
                 loop: true,
                 slidesPerView: 1,
                 spaceBetween: 50,

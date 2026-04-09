@@ -2,7 +2,6 @@
 $field = isset($args['field']) ? $args['field'] : null;
 
 $type = !empty($field['type']) ? get_field($field['type']) : 'product';
-$count = !empty($field['count']) ? get_field($field['count']) : -1;
 $decor = !empty($field['decor']) ? get_field($field['decor']) : false;
 $link = get_field($field['link']);
 $title = get_field($field['title']);
@@ -11,7 +10,7 @@ $timer = !empty($field['timer']) ? get_field($field['timer']): 10000;
 
 $query = new WP_Query([
         'post_type' => $type,
-        'posts_per_page' => $count,
+        'posts_per_page' =>-1,
 ]);
 
 if ($query->have_posts()): ?>
@@ -26,7 +25,7 @@ if ($query->have_posts()): ?>
                         <h3 class="slider-title"><?php echo esc_html($title); ?></h3>
                     <?php endif; ?>
                 </article>
-                <div class="swiper" data-timer="<?php echo $timer ?>">
+                <div class="swiper small-swiper" data-timer="<?php echo $timer ?>">
                     <div class="swiper-wrapper">
                     <?php while ($query->have_posts()): $query->the_post(); ?>
                         <div class="slider-item swiper-slide">
