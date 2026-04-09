@@ -38,15 +38,15 @@
 
 				&:before {
 					left: 0;
-					transform: translateX(-50%);
+					transform: translateX(-60%);
 				}
 
 				&:after {
 					right: 0;
-					transform: translateX(50%);
+					transform: translateX(60%);
 				}
 
-				@media (max-width: 768px) {
+				@media (max-width: 1024px) {
 					&:before, &:after {
 						display: none;
 					}
@@ -82,16 +82,21 @@
 			&-list {
 				display: grid;
 				width: 100%;
-				max-width: 70%;
+				max-width: var(--primary-block-width);
 				margin-bottom: 50px;
-				grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+				grid-template-columns: repeat(3, 1fr);
 				gap: 50px;
-
+				@media (max-width: 1024px) {
+					width : 100%;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 25px;
+				}
 				@media (max-width: 768px) {
-					max-width: 100%;
 					margin-bottom: 24px;
 					grid-template-columns: 1fr;
-					gap: 24px;
+				}
+
+				&-item {
 				}
 			}
 
@@ -100,54 +105,49 @@
 
 			&-link {
 				font-size: var(--xs-font-size);
-				position: relative;
-				text-decoration: none;
-				text-transform: uppercase;
 				font-weight: 500;
 				line-height: 1;
+				position: relative;
 				user-select: none;
+				text-decoration: none;
+				text-transform: uppercase;
 				color: inherit;
-				&:before{
-					content: '';
+
+				&:before {
 					position: absolute;
+					right: 0;
 					bottom: -10px;
 					left: auto;
-					right: 0;
-					height: 1px;
 					width: 0;
-					background: currentColor;
+					height: 1px;
+					content: '';
 					transition: all .2s;
+					background: currentColor;
 				}
 
 				&:hover {
-					&:before{
-						width: 100%;
+					&:before {
+						right: auto;
 						left: 0;
-						right: auto
+						width: 100%;
 					}
 				}
 
 				&:after {
 					position: relative;
 					display: inline-block;
+					width: 8px;
+					height: 8px;
+					margin-bottom: 2px;
+					margin-left: 10px;
 					content: '';
 					transform: rotate(-45deg);
 					border-right: 2px solid currentColor;
 					border-bottom: 2px solid currentColor;
-					width :8px;
-					height: 8px;
-					margin-left: 10px;
-					margin-bottom: 2px;
 				}
 			}
 
-			.product-small-card{
-
-			}
-
 			@media (max-width: 768px) {
-				min-height: calc(100vh - var(--header-height));
-				min-height: calc(100svh - var(--header-height));
 				padding-block: 50px;
 			}
 		}

@@ -69,7 +69,7 @@
             const swiper = new Swiper('.small-swiper', {
                 loop: true,
                 slidesPerView: 1,
-                spaceBetween: 10,
+                spaceBetween: 25,
                 autoplay: { delay },
                 watchSlidesProgress: true,
                 watchSlidesVisibility: true,
@@ -83,17 +83,13 @@
                 },
                 breakpoints: {
                     768: {
-                        slidesPerView: 1,
-                        spaceBetween: 10,
-                    },
-                    1024: {
                         slidesPerView: 2,
                         spaceBetween: 25,
                     },
-                    1440: {
+                    1024: {
                         slidesPerView: 3,
                         spaceBetween: 50,
-                    }
+                    },
                 }
             });
         }
