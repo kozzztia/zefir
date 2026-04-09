@@ -63,22 +63,37 @@
         }
 
         if ($('.small-slider-wrapper .slider').length) {
-            const $swiper = $('.small-swiper');
-            const delay = $swiper.data('timer');
+            const $swiper = $('.swiper');
+            const delay = $swiper.data('timer') || 4000;
 
-            new Swiper('.small-swiper', {
+            const swiper = new Swiper('.small-swiper', {
                 loop: true,
                 slidesPerView: 1,
-                spaceBetween: 50,
-                autoplay: {
-                    delay: delay,
-                },
+                spaceBetween: 10,
+                autoplay: { delay },
                 watchSlidesProgress: true,
                 watchSlidesVisibility: true,
+                pagination: {
+                    el: '.pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.next',
+                    prevEl: '.prev',
+                },
                 breakpoints: {
-                    768: { slidesPerView: 1, spaceBetween: 50 },
-                    1024: { slidesPerView: 2, spaceBetween: 50 },
-                    1440: { slidesPerView: 3, spaceBetween: 50 },
+                    768: {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    1024: {
+                        slidesPerView: 2,
+                        spaceBetween: 25,
+                    },
+                    1440: {
+                        slidesPerView: 3,
+                        spaceBetween: 50,
+                    }
                 }
             });
         }

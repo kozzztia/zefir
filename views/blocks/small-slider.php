@@ -45,6 +45,8 @@ if ($query->have_posts()): ?>
                         </div>
                     <?php endwhile; wp_reset_postdata(); ?>
                     </div>
+                    <div class="swiper-button-next next"></div>
+                    <div class="swiper-button-prev prev"></div>
                 </div>
                 <?php if ($link): ?>
                     <div class="slider-buttons">

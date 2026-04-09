@@ -29,7 +29,7 @@ if ($query->have_posts()): ?>
                 <ul class="gallery-list">
                     <?php while ($query->have_posts()): $query->the_post(); ?>
                         <li class="gallery-list-item">
-                            <a href="<?php the_permalink(); ?>" class="product-small-card">
+                            <a href="<?php the_permalink(); ?>" class="product-small-card <?php echo $type ?>">
                                 <?php if (has_post_thumbnail()): ?>
                                     <img class="product-small-card-img"
                                          src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'medium')); ?>"

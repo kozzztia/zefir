@@ -38,6 +38,18 @@ function register_custom_cpts() {
         'supports'     => ['title', 'editor', 'thumbnail', 'excerpt'],
         'show_in_rest' => true,
     ]);
+
+    register_post_type('promo', [
+        'labels' => [
+            'name'          => 'Promos',
+            'singular_name' => 'Promo',
+        ],
+        'public'       => true,
+        'has_archive'  => false,
+        'menu_icon'    => 'dashicons-megaphone',
+        'supports'     => ['title', 'editor', 'thumbnail', 'excerpt'],
+        'show_in_rest' => true,
+    ]);
 }
 add_action('init', 'register_custom_cpts');
 
