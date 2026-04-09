@@ -89,6 +89,7 @@
 		}
 
 		.small-swiper {
+			position: relative;
 			overflow: visible;
 			max-width: 70%;
 			margin-bottom: 50px;
@@ -107,20 +108,28 @@
 		}
 		.next, .prev {
 			width: 50px;
-			height: 50px;
+			height: 100%;
+			top: 0;
+			right: 0;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			color: var(--color-chocolate);
-			top: calc(50% - (50px));
 			filter: drop-shadow(0 0 4px var(--color-white));
 
 			&:after {
+				transition: scale .1s;
 				content: '';
 				display: block;
 				width: 0;
 				height: 0;
 				border-style: solid;
+			}
+
+			&:hover {
+				&:after{
+					scale: 1.1;
+				}
 			}
 		}
 
