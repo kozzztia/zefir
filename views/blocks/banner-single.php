@@ -1,9 +1,9 @@
 <?php
 $field = isset($args['field']) ? $args['field'] : null;
-$type = isset($field['type']) ? get_field($field['type']) : 'product';
-$style = get_field($field['style']);
-$picture = get_field($field['picture']);
-$name = get_field($field['name']);
+$type = isset($field['type']) ? $field['type'] : 'product';
+$style = isset($field['style']) ? $field['style'] : '';
+$picture = isset($field['picture']) ? $field['picture'] : null;
+$name = isset($field['name']) ? $field['name'] : null;
 
 if ($name) {
     $query = new WP_Query([

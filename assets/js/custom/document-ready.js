@@ -54,7 +54,7 @@
                     delay: delay,
                 },
                 pagination: {
-                    el: '.swiper-pagination',
+                    el: '.slider-pagination',
                     clickable: true,
                     dynamicBullets: true,
                     dynamicMainBullets: 5,
@@ -64,7 +64,7 @@
 
         if ($('.small-slider-wrapper .slider').length) {
             const $swiper = $('.swiper');
-            const delay = $swiper.data('timer') || 4000;
+            const delay = $swiper.data('timer');
 
             const swiper = new Swiper('.small-swiper', {
                 loop: true,
@@ -73,10 +73,6 @@
                 autoplay: { delay },
                 watchSlidesProgress: true,
                 watchSlidesVisibility: true,
-                pagination: {
-                    el: '.pagination',
-                    clickable: true,
-                },
                 navigation: {
                     nextEl: '.next',
                     prevEl: '.prev',

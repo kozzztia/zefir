@@ -1,7 +1,7 @@
 <?php
 $field = isset($args['field']) ? $args['field'] : null;
-$timer = !empty($field['timer']) ? get_field($field['timer']) : 10000;
-$type = !empty($field['type']) ? get_field($field['type']) : 'service';
+$timer = !empty($field['timer']) ? $field['timer'] : 10000;
+$type = !empty($field['type']) ? $field['type'] : 'service';
 
 $query = new WP_Query([
         'post_type'      => $type,
@@ -36,7 +36,7 @@ if ($query->have_posts()): ?>
                 </div>
             <?php endwhile; ?>
             </div>
-            <div class="swiper-pagination pagination"></div>
+            <div class="swiper-pagination slider-pagination"></div>
         </div>
     </div>
 </div>

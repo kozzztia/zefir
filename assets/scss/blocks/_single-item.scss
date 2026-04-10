@@ -1,0 +1,136 @@
+@use '../vars' as *;
+
+.single-item-wrapper {
+	.single-item {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		max-width: var(--secondary-block-width);
+		min-height: 600px;
+		padding: 90px var(--block-side-padding);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		&:after {
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 100%;
+			content: '';
+			background-color: rgba(var(--color-white-rgb), 0.5);
+			backdrop-filter: blur(var(--blur));
+		}
+
+		.item {
+			flex: 1;
+			width: 100%;
+			max-width: var(--primary-block-width);
+			height: 100%;
+			margin-inline: auto;
+			gap: 25px;
+			display: grid;
+			grid-template-columns: auto 1fr 1fr;
+			grid-template-rows: auto  80px;
+			grid-template-areas: 'items img content';
+
+			@media (max-width: 1024px) {
+				grid-template-columns: 1fr 1fr;
+				grid-template-areas: 'img content'
+									'items items'
+			;
+			}
+			@media (max-width: 768px) {
+				grid-template-columns: auto;
+				grid-template-areas: 'img'
+									'content'
+									'items'
+			;
+			}
+
+			img{
+				display: block;
+			}
+
+			&-list {
+				grid-area: items;
+				display: flex;
+				flex-direction: column;
+				gap :25px;
+				width: 100%;
+
+				@media (max-width: 1024px) {
+					flex-direction: row;
+					margin-inline: auto;
+				}
+				@media (max-width: 768px) {
+					overflow-x: scroll;
+					scroll-snap-type: x mandatory;
+					scrollbar-width: none;
+					-webkit-overflow-scrolling: touch;
+				}
+
+				&-item{
+					cursor: pointer;
+					border-radius: 50%;
+					overflow: hidden;
+					background-color: rgba(var(--color-white-rgb), 0.7);
+					backdrop-filter: blur(var(--blur));
+					flex-shrink: 0;
+
+					input[type="radio"] {
+						display: none;
+					}
+				}
+
+				img {
+					width: 80px;
+					aspect-ratio: 1/1;
+					object-fit: cover;
+					object-position: center;
+				}
+			}
+
+			&-images {
+				grid-area: img;
+				display: flex;
+				justify-content: center;
+				align-items: stretch;
+
+
+				&-item{
+					display: none;
+					flex :1;
+					background-color: rgba(var(--color-white-rgb), 0.7);
+					backdrop-filter: blur(var(--blur));
+					border-radius: 2px;
+					overflow: hidden;
+					justify-content: center;
+					align-items: center;
+					padding: 10px;
+				}
+
+				&-item:has(input:checked){
+					display: flex;
+				}
+
+				img {
+					width: 100%;
+					aspect-ratio: 1/1;
+					object-fit: contain;
+					object-position: center;
+				}
+			}
+
+			&-content {
+				grid-area: content;
+			}
+		}
+	}
+}

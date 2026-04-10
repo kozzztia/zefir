@@ -49,6 +49,7 @@ body {
 .customWrapper {
 	position: relative;
 	width: 100%;
+	z-index: 100;
 
 	.customBlock {
 		max-width: var(--secondary-block-width);

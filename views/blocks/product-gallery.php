@@ -1,12 +1,12 @@
 <?php
 $field = isset($args['field']) ? $args['field'] : null;
 
-$type = !empty($field['type']) ? get_field($field['type']) : 'product';
-$count = !empty($field['count']) ? get_field($field['count']) : -1;
-$decor = !empty($field['decor']) ? get_field($field['decor']) : false;
-$link = get_field($field['link']);
-$title = get_field($field['title']);
-$subtitle = get_field($field['subtitle']);
+$type = !empty($field['type']) ? $field['type'] : 'product';
+$count = !empty($field['count']) ? $field['count'] : -1;
+$decor = !empty($field['decor']) ? $field['decor'] : false;
+$link = !empty($field['link']) ? $field['link'] : null;;
+$title = !empty($field['title']) ? $field['title'] : null;
+$subtitle = !empty($field['subtitle']) ? $field['subtitle'] : null;
 
 $query = new WP_Query([
         'post_type' => $type,
