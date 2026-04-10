@@ -1,6 +1,7 @@
 @use '../vars' as *;
 
 .product-gallery-wrapper {
+	padding: 0;
 	.product-gallery {
 		position: relative;
 		z-index: 1;
@@ -18,6 +19,10 @@
 			background-repeat: repeat;
 			background-position: center;
 			background-size: cover;
+
+			@media (max-width: 1024px) {
+				padding: var(--block-side-padding);
+			}
 
 			&.decorate {
 				z-index: 90;
@@ -145,10 +150,6 @@
 					border-right: 2px solid currentColor;
 					border-bottom: 2px solid currentColor;
 				}
-			}
-
-			@media (max-width: 768px) {
-				padding-block: 50px;
 			}
 		}
 	}

@@ -18,6 +18,10 @@
 			background-position: center;
 			background-size: cover;
 
+			@media (max-width: 1024px) {
+				padding: var(--block-side-padding);
+			}
+
 			&-text {
 				z-index: 95;
 				width: 100%;

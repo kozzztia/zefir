@@ -42,8 +42,8 @@
             <?php endif; ?>
 
             <div class="item-content">
-                <h1><?php the_title(); ?></h1>
-                <div class="typo">
+                <h1 class="item-content-title"><?php the_title(); ?></h1>
+                <div class="typo item-content-text">
                     <?php the_content(); ?>
                 </div>
             </div>
