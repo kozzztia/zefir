@@ -89,6 +89,7 @@ body {
 	-webkit-tap-highlight-color: transparent;
 	text-decoration: none;
 	color: currentColor;
+	border-radius: 2px;
 
 	&.sandy {
 		color: var(--color-black);
@@ -96,6 +97,16 @@ body {
 
 		&:hover {
 			background-color: var(--color-white);
+		}
+	}
+
+	&.white{
+		color: var(--color-black);
+		background-color: var(--color-white);
+
+		&:hover {
+			color: var(--color-white);
+			background-color: var(--color-chocolate);
 		}
 	}
 }

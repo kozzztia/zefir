@@ -17,7 +17,6 @@
 			background-repeat: repeat;
 			background-position: center;
 			background-size: cover;
-
 			@media (max-width: 1024px) {
 				padding: var(--block-side-padding);
 			}
@@ -102,67 +101,68 @@
 			}
 
 			.swiper-slide {
-				transition: all .2s;
-				opacity: 0;
 				visibility: hidden;
+				transition: all .2s;
 				pointer-events: none;
+				opacity: 0;
 
 				&-visible {
-					opacity: 1;
 					visibility: visible;
 					pointer-events: auto;
+					opacity: 1;
 				}
 			}
 		}
+
 		.next, .prev {
-			width: 50px;
-			height: 50px;
 			top: calc(50% - 50px);
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			width: 50px;
+			height: 50px;
 			color: var(--color-chocolate);
 			filter: drop-shadow(0 0 4px var(--color-white));
 
 			&:after {
-				transition: scale .1s;
-				content: '';
 				display: block;
 				width: 0;
 				height: 0;
+				content: '';
+				transition: scale .1s;
 				border-style: solid;
 			}
 
 			&:hover {
-				&:after{
+				&:after {
 					scale: 1.1;
 				}
 			}
 		}
 
-		.next{
+		.next {
 			right: -100px;
 			backdrop-filter: drop-shadow(1px 10px 10px var(--color-sandy));
-
 
 			&:after {
 				border-width: 25px 0 25px 25px;
 				border-color: transparent transparent transparent currentColor;
 			}
 
-			@media (max-width: 1024px){
+			@media (max-width: 1024px) {
 				right: 0;
 			}
 		}
 
-		.prev{
+		.prev {
 			left: -100px;
+
 			&:after {
 				border-width: 25px 25px 25px 0;
 				border-color: transparent currentColor transparent transparent;
 			}
 
-			@media (max-width: 1024px){
+			@media (max-width: 1024px) {
 				left: 0;
 			}
 		}

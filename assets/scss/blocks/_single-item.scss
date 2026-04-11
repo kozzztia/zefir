@@ -13,7 +13,6 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
-
 		@media (max-width: 1024px) {
 			padding: var(--block-side-padding);
 		}
@@ -28,53 +27,49 @@
 			width: 100%;
 			height: 100%;
 			content: '';
-			background-color: rgba(var(--color-white-rgb), 0.5);
+			background-color: rgba(var(--color-sandy-rgb), 0.7);
 			backdrop-filter: blur(var(--blur));
 		}
 
 		.item {
+			display: grid;
 			flex: 1;
 			width: 100%;
 			max-width: var(--primary-block-width);
 			height: 100%;
 			margin-inline: auto;
 			gap: 25px;
-			display: grid;
-			grid-template-columns: auto 1fr 1fr;
-
+			grid-template-columns: auto 1fr 0.8fr;
 			grid-template-areas: 'items img content';
-
 			@media (max-width: 1024px) {
 				grid-template-columns: 1fr 1fr;
 				grid-template-rows: auto  80px;
 				grid-template-areas: 'img content'
-									'items items'
-			;
+									'items items';
 			}
 			@media (max-width: 768px) {
 				grid-template-columns: auto;
 				grid-template-rows: auto auto 80px;
 				grid-template-areas: 'img'
 									'content'
-									'items'
-			;
+									'items';
 			}
 
-			img{
+			img {
 				display: block;
+				border-radius: 2px;
+				overflow: hidden;
 			}
 
 			&-list {
-				grid-area: items;
 				display: flex;
 				flex-direction: column;
-				gap :25px;
-
+				grid-area: items;
+				gap: 25px;
 				@media (max-width: 1024px) {
 					flex-direction: row;
 					max-width: 100%;
 					margin-inline: auto;
-
 				}
 				@media (max-width: 768px) {
 					overflow-x: auto;
@@ -87,17 +82,18 @@
 					}
 				}
 
-				&-item{
-					cursor: pointer;
-					border-radius: 50%;
+				&-item {
 					overflow: hidden;
-					background-color: rgba(var(--color-white-rgb), 0.7);
-					backdrop-filter: blur(var(--blur));
 					flex-shrink: 0;
 					width: 80px;
 					height: 80px;
+					cursor: pointer;
+					user-select: none;
+					border-radius: 50%;
+					background-color: rgba(var(--color-white-rgb), 0.7);
+					backdrop-filter: blur(var(--blur));
 
-					input[type="radio"] {
+					input[type='radio'] {
 						display: none;
 					}
 
@@ -115,26 +111,24 @@
 			}
 
 			&-images {
-				grid-area: img;
 				display: flex;
-				justify-content: center;
 				align-items: stretch;
+				justify-content: center;
+				grid-area: img;
 
-
-				&-item{
+				&-item {
 					display: none;
-					flex :1;
+					overflow: hidden;
+					align-items: center;
+					flex: 1;
+					justify-content: center;
+					padding: 10px;
+					animation: .3s show-fade;
 					background-color: rgba(var(--color-white-rgb), 0.7);
 					backdrop-filter: blur(var(--blur));
-					border-radius: 2px;
-					overflow: hidden;
-					justify-content: center;
-					align-items: center;
-					padding: 10px;
-					animation: .2s show-down ;
 				}
 
-				&-item:has(input:checked){
+				&-item:has(input:checked) {
 					display: flex;
 				}
 
@@ -144,32 +138,64 @@
 					object-fit: contain;
 					object-position: center;
 				}
+
+				&-image{
+					overflow: hidden;
+					align-items: center;
+					flex: 1;
+					justify-content: center;
+					padding: 10px;
+					animation: .3s show-fade;
+					background-color: rgba(var(--color-white-rgb), 0.7);
+					backdrop-filter: blur(var(--blur));
+					img{
+						width: 100%;
+						aspect-ratio: 1/1;
+						object-fit: cover;
+						object-position: center;
+						border-radius: 50%;
+					}
+				}
 			}
 
 			&-content {
 				grid-area: content;
+				display: flex;
+				flex-direction: column;
+				gap : var(--primary-gap);
 
 				&-title {
 					font-family: var(--secondary-font), sans-serif;
 					font-size: var(--xxl-font-size);
 					font-weight: 900;
-					margin-bottom: 40px;
 					text-transform: uppercase;
 					@include protect(3);
-					@media (max-width: 768px) {
-						margin-bottom: 20px;
-					}
 				}
 
 				&-text {
 					font-size: var(--s-font-size);
-					@include protect(4);
-					margin-bottom: 40px;
-					@media (max-width: 768px) {
-						margin-bottom: 20px;
-					}
+					@include protect(12);
 				}
 
+				&-info {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					gap: 10px;
+
+					b {
+						font-weight: 900;
+					}
+				}
+				
+				&-buttons{
+					margin-top: auto;
+					width :100%;
+				}
+
+				&-button{
+					width: 100%;
+				}
 			}
 		}
 	}
