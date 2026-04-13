@@ -17,6 +17,7 @@ if ($query->have_posts()): ?>
     <div class="customWrapper small-slider-wrapper">
         <div class="customBlock small-slider">
             <div class="slider" style="background-image: url(<?php echo get_template_directory_uri(); ?>/assets/img/gallery-bg.webp)">
+                <?php if ($subtitle || $title) : ?>
                 <article class="slider-text">
                     <?php if ($subtitle): ?>
                         <p class="slider-subtitle"><?php echo esc_html($subtitle); ?></p>
@@ -25,6 +26,7 @@ if ($query->have_posts()): ?>
                         <h3 class="slider-title"><?php echo esc_html($title); ?></h3>
                     <?php endif; ?>
                 </article>
+                <?php endif; ?>
                 <div class="swiper small-swiper" data-timer="<?php echo $timer ?>">
                     <div class="swiper-wrapper">
                     <?php while ($query->have_posts()): $query->the_post(); ?>

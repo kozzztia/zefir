@@ -5,6 +5,8 @@ html {
 }
 
 main {
+z-index: 100;
+	position: relative;
 	overflow: clip;
 	flex: 1 0 auto;
 	padding-top: var(--header-height);
@@ -283,4 +285,29 @@ body {
 	//	//	scale: 1.05;
 	//	//}
 	//}
+}
+
+.bread-crumb{
+	position: absolute;
+	z-index: 1000;
+	top: var(--header-height);
+	right: 0;
+	left: 0;
+	padding-inline: var(--block-side-padding);
+	padding-top: 30px;
+	&-inner{
+		max-width: var(--primary-block-width);
+		margin-inline: auto;
+		color: var(--color-black);
+		display: flex;
+		gap :10px;
+
+		a{
+			color :inherit;
+		}
+	}
+
+	@media (max-width: 768px) {
+		display: none;
+	}
 }

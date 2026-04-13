@@ -53,9 +53,68 @@ function register_custom_cpts() {
 }
 add_action('init', 'register_custom_cpts');
 
+add_action('wp_body_open', 'zefir_render_breadcrumbs');
+
 
 register_nav_menus(array(
     'primary' => __('Primary Menu', 'zefir'),
 ));
 
 add_action('wp_enqueue_scripts', 'zefir_scripts');
+
+
+function custom_breadcrumbs() {
+    // на главной не показываем
+    if ( is_front_page() || is_home() ) {
+        return;
+    }
+
+    $breadcrumbs = [];
+    $breadcrumbs[] = '<a href="' . home_url() . '">Main</a>';
+
+    if ( is_category() ) {
+        $breadcrumbs[] = single_cat_title('', false);
+    }
+    elseif ( is_singular('post') ) {
+        $category = get_the_category();
+        if ( !empty($category) ) {
+            $breadcrumbs[] = '<a href="' . get_category_link($category[0]->term_id) . '">' . $category[0]->name . '</a>';
+        }
+        $breadcrumbs[] = get_the_title();
+    }
+    elseif ( is_post_type_archive() ) {
+        $breadcrumbs[] = post_type_archive_title('', false);
+    }
+    elseif ( is_singular() ) {
+        $post_type = get_post_type();
+        $archive_link = get_post_type_archive_link($post_type);
+        $post_type_obj = get_post_type_object($post_type);
+
+        if ( $archive_link ) {
+            $breadcrumbs[] = '<a href="' . esc_url($archive_link) . '">' . esc_html($post_type_obj->labels->name) . '</a>';
+        }
+        $breadcrumbs[] = get_the_title();
+    }
+    elseif ( is_page() ) {
+        global $post;
+        if ( $post->post_parent ) {
+            $parents = [];
+            $parent_id = $post->post_parent;
+            while ( $parent_id ) {
+                $page = get_page($parent_id);
+                $parents[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
+                $parent_id = $page->post_parent;
+            }
+            $breadcrumbs = array_merge($breadcrumbs, array_reverse($parents));
+        }
+        $breadcrumbs[] = get_the_title();
+    }
+
+    echo implode(' / ', $breadcrumbs);
+}
+
+add_action('pre_get_posts', function($query) {
+    if (!is_admin() && $query->is_main_query() && is_post_type_archive('product')) {
+        $query->set('posts_per_page', 12);
+    }
+});

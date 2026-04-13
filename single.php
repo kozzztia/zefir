@@ -10,7 +10,7 @@ function zefir_render_content() {
             'subtitle'   => 'be shore  it work',
             'timer'      => 7000,
             'link'       => [
-                'url' => '#',
+                'url' => '/' . get_post_type(),
                 'title' => 'all '. get_post_type() . 's',
             ],
         ],

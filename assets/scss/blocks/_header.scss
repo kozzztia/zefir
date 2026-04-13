@@ -111,6 +111,7 @@
 					justify-content: center;
 
 					&.menu-item-has-children {
+						z-index: 2000;
 						.sub-menu {
 							position: absolute;
 							top: 100%;
@@ -129,8 +130,10 @@
 							justify-content: flex-start;
 						}
 
-						&:hover .sub-menu {
-							animation: show-down .1s forwards;
+						&:hover {
+							.sub-menu {
+								animation: show-down .1s forwards;
+							}
 						}
 					}
 				}
